@@ -36,5 +36,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add docs/data/video-ids.json
-          git commit -m "Auto-refresh: add new Super Bowl LX ads [skip ci]"
+          git commit -m "Auto-refresh: add new Big Game LX ads [skip ci]"
           git push

@@ -1,5 +1,5 @@
 """
-Refresh video-ids.json with new Super Bowl LX ads from YouTube search.
+Refresh video-ids.json with new Big Game LX ads from YouTube search.
 
 Merges new discoveries into the existing file without overwriting
 curated metadata (brand, category, celebrity) for existing entries.

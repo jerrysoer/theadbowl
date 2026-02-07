@@ -1,5 +1,5 @@
 """
-Scrape Super Bowl ad video IDs from YouTube search.
+Scrape Big Game ad video IDs from YouTube search.
 
 Usage:
     python scrape-ads.py
@@ -66,7 +66,7 @@ def main():
     print(f"Found {len(ads)} results", file=sys.stderr)
 
     output = {
-        "event": "Super Bowl LX",
+        "event": "Big Game LX",
         "year": 2026,
         "lastUpdated": "2026-02-07",
         "ads": ads,

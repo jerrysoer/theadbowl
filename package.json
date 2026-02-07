@@ -1,7 +1,7 @@
 {
   "name": "theadbowl",
   "version": "1.0.0",
-  "description": "Real-time Super Bowl ad performance tracker — The Super Bowl of Ads",
+  "description": "Real-time Big Game ad performance tracker — TheAdBowl",
   "author": "Jerry Soer",
   "license": "MIT",
   "homepage": "https://jerrysoer.github.io/theadbowl",
@@ -10,7 +10,7 @@
     "url": "https://github.com/jerrysoer/theadbowl"
   },
   "keywords": [
-    "super-bowl",
+    "big-game",
     "ads",
     "youtube",
     "leaderboard",

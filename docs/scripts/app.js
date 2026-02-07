@@ -140,9 +140,9 @@
       const hoursPast = Math.abs(diff) / (1000 * 60 * 60);
       postgameMessage.hidden = false;
       if (hoursPast < 6) {
-        postgameMessage.textContent = 'GAME DAY — Super Bowl LX is LIVE. Stats updating every 2 minutes.';
+        postgameMessage.textContent = 'GAME DAY — Big Game LX is LIVE. Stats updating every 2 minutes.';
       } else {
-        postgameMessage.textContent = "That's a wrap on Super Bowl LX — thanks for watching the ads with us!";
+        postgameMessage.textContent = "That's a wrap on Big Game LX — thanks for watching the ads with us!";
       }
       return;
     }
@@ -162,7 +162,7 @@
     cdSecs.textContent = String(secs).padStart(2, '0');
 
     contextMessage.textContent = days > 0
-      ? `Super Bowl LX — Feb 8, 2026`
+      ? `Big Game LX — Feb 8, 2026`
       : 'Kickoff today';
   }
 

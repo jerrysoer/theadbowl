@@ -1,6 +1,6 @@
 # TheAdBowl
 
-**Live Super Bowl LX commercial scoreboard** — tracking every ad's views, engagement, and trending velocity in real time.
+**Live Big Game LX commercial scoreboard** — tracking every ad's views, engagement, and trending velocity in real time.
 
 [**View Live**](https://jerrysoer.github.io/theadbowl)
 
@@ -45,7 +45,7 @@ Keeping the frontend static and the API on Vercel shows understanding of:
 
 ## Features
 
-- Real-time YouTube stats (views, likes, comments) for every Super Bowl ad
+- Real-time YouTube stats (views, likes, comments) for every Big Game ad
 - Sort by **Views**, **Engagement Rate**, or **Trending Velocity**
 - Trending detection — tracks view count deltas between refreshes
 - Per-card **Copy Link** and **Share on X** buttons

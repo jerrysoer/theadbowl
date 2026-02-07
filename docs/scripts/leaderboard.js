@@ -81,7 +81,7 @@ class Leaderboard {
         <div class="ad-card__thumbnail" aria-label="Play video" role="button" tabindex="0">
           <img
             src="${this._escapeAttr(ad.thumbnail)}"
-            alt="${this._escapeAttr(ad.brand)} Super Bowl ad"
+            alt="${this._escapeAttr(ad.brand)} Big Game ad"
             width="640"
             height="360"
             ${lazyAttr}
