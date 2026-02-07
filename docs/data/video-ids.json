@@ -4,24 +4,241 @@
   "lastUpdated": "2026-02-07",
   "ads": [
     {
-      "videoId": "dQw4w9WgXcQ",
-      "brand": "Doritos",
-      "adTitle": "Crash the Super Bowl",
-      "category": "Food & Beverage",
-      "celebrity": null
-    },
-    {
-      "videoId": "9bZkp7q19f0",
+      "videoId": "a_mh-v02-Tw",
       "brand": "Budweiser",
-      "adTitle": "Clydesdales Return",
+      "adTitle": "American Icons",
       "category": "Beer",
       "celebrity": null
     },
     {
-      "videoId": "kJQP7kiw5Fk",
-      "brand": "T-Mobile",
-      "adTitle": "Connection",
-      "category": "Telecom",
+      "videoId": "z-P6OzmgCyY",
+      "brand": "Bud Light",
+      "adTitle": "Keg",
+      "category": "Beer",
+      "celebrity": "Post Malone, Peyton Manning, Shane Gillis"
+    },
+    {
+      "videoId": "6CdX8W8U7jA",
+      "brand": "Pringles",
+      "adTitle": "Pringleleo",
+      "category": "Food & Snacks",
+      "celebrity": "Sabrina Carpenter"
+    },
+    {
+      "videoId": "7enIUTay7W0",
+      "brand": "Dunkin'",
+      "adTitle": "Dunkin'",
+      "category": "Food & Beverage",
+      "celebrity": "Ben Affleck, Jennifer Aniston, Matt LeBlanc, Jason Alexander"
+    },
+    {
+      "videoId": "pPHI2zNf_ww",
+      "brand": "Pepsi",
+      "adTitle": "The Choice",
+      "category": "Beverage",
+      "celebrity": null
+    },
+    {
+      "videoId": "wEATgsMwWAU",
+      "brand": "Rocket",
+      "adTitle": "Won't You Be My Neighbor",
+      "category": "Finance",
+      "celebrity": "Lady Gaga"
+    },
+    {
+      "videoId": "gTleZejhlqk",
+      "brand": "Instacart",
+      "adTitle": "Bananas",
+      "category": "Tech",
+      "celebrity": "Ben Stiller, Benson Boone"
+    },
+    {
+      "videoId": "pyvGh2-Gsdg",
+      "brand": "Grubhub",
+      "adTitle": "The Feest",
+      "category": "Food Delivery",
+      "celebrity": "George Clooney"
+    },
+    {
+      "videoId": "ClX4DldtGq0",
+      "brand": "e.l.f. Cosmetics",
+      "adTitle": "MELISA",
+      "category": "Beauty",
+      "celebrity": "Melissa McCarthy"
+    },
+    {
+      "videoId": "5TpdUBwyL4c",
+      "brand": "Hellmann's",
+      "adTitle": "Sweet Sandwich Time",
+      "category": "Food",
+      "celebrity": "Andy Samberg"
+    },
+    {
+      "videoId": "PGkhZ5fToOk",
+      "brand": "Michelob ULTRA",
+      "adTitle": "The ULTRA Instructor",
+      "category": "Beer",
+      "celebrity": "Kurt Russell"
+    },
+    {
+      "videoId": "KWDINj9-xX8",
+      "brand": "Ritz",
+      "adTitle": "RITZ Island",
+      "category": "Food & Snacks",
+      "celebrity": "Bowen Yang, Jon Hamm, Scarlett Johansson"
+    },
+    {
+      "videoId": "c7nAJDpGHxY",
+      "brand": "Squarespace",
+      "adTitle": "Unavailable",
+      "category": "Tech",
+      "celebrity": "Emma Stone"
+    },
+    {
+      "videoId": "tqXOcRtZoow",
+      "brand": "Ro",
+      "adTitle": "Healthier on Ro",
+      "category": "Health",
+      "celebrity": "Serena Williams"
+    },
+    {
+      "videoId": "JfLUbLIULDw",
+      "brand": "Fanatics Sportsbook",
+      "adTitle": "Bet On Kendall",
+      "category": "Sports Betting",
+      "celebrity": "Kendall Jenner"
+    },
+    {
+      "videoId": "Z1yGy9fELtE",
+      "brand": "Google",
+      "adTitle": "New Home",
+      "category": "Tech",
+      "celebrity": null
+    },
+    {
+      "videoId": "VqB98tCClPQ",
+      "brand": "Expedia",
+      "adTitle": "Going Places with Ken",
+      "category": "Travel",
+      "celebrity": null
+    },
+    {
+      "videoId": "84MCtvXCt9E",
+      "brand": "Dove",
+      "adTitle": "The Game is Ours",
+      "category": "Personal Care",
+      "celebrity": null
+    },
+    {
+      "videoId": "sf2Ry_deVN0",
+      "brand": "OIKOS",
+      "adTitle": "The Big Hill",
+      "category": "Food",
+      "celebrity": "Derrick Henry, Kathryn Hahn"
+    },
+    {
+      "videoId": "lMTcZb48aVU",
+      "brand": "Novartis",
+      "adTitle": "Relax Your Tight End",
+      "category": "Pharma",
+      "celebrity": "Rob Gronkowski, George Kittle"
+    },
+    {
+      "videoId": "1A28a79cmtg",
+      "brand": "Frank's RedHot",
+      "adTitle": "Eat the GOAT",
+      "category": "Food",
+      "celebrity": "Ludacris"
+    },
+    {
+      "videoId": "r8VRdwYwUKo",
+      "brand": "TurboTax",
+      "adTitle": "The Expert",
+      "category": "Finance",
+      "celebrity": "Adrian Brody"
+    },
+    {
+      "videoId": "y5bJ612mUt8",
+      "brand": "Toyota",
+      "adTitle": "Superhero Belt",
+      "category": "Automotive",
+      "celebrity": null
+    },
+    {
+      "videoId": "4nyKYDP21rM",
+      "brand": "Skechers",
+      "adTitle": "Skechers",
+      "category": "Fashion",
+      "celebrity": "Sofia Vergara"
+    },
+    {
+      "videoId": "aZ7Z5LTJWHM",
+      "brand": "Hims & Hers",
+      "adTitle": "Rich People Live Longer",
+      "category": "Health",
+      "celebrity": null
+    },
+    {
+      "videoId": "3MPUxZF__tE",
+      "brand": "Bosch",
+      "adTitle": "A Little Buzz",
+      "category": "Home",
+      "celebrity": "Guy Fieri"
+    },
+    {
+      "videoId": "xf64Okfdc6Y",
+      "brand": "Raisin Bran",
+      "adTitle": "Will Shat",
+      "category": "Food",
+      "celebrity": "William Shatner"
+    },
+    {
+      "videoId": "1-mgrFS00B0",
+      "brand": "Ramp",
+      "adTitle": "Multiply What's Possible",
+      "category": "Finance",
+      "celebrity": "Brian Baumgartner"
+    },
+    {
+      "videoId": "XOIHAAuMwPI",
+      "brand": "Nerds",
+      "adTitle": "Nerds",
+      "category": "Candy",
+      "celebrity": "Andy Cohen"
+    },
+    {
+      "videoId": "NerlyGrv7WM",
+      "brand": "Oakley Meta",
+      "adTitle": "Athletic Intelligence is Here",
+      "category": "Tech",
+      "celebrity": null
+    },
+    {
+      "videoId": "WEV_wDMTCq0",
+      "brand": "Universal Orlando",
+      "adTitle": "Lil' Bro",
+      "category": "Entertainment",
+      "celebrity": null
+    },
+    {
+      "videoId": "rRo5spaBfbo",
+      "brand": "Wix",
+      "adTitle": "Harmony",
+      "category": "Tech",
+      "celebrity": null
+    },
+    {
+      "videoId": "pkeWRI2yJGM",
+      "brand": "Svedka",
+      "adTitle": "Shake Your Bots Off",
+      "category": "Spirits",
+      "celebrity": null
+    },
+    {
+      "videoId": "kQRu7DdTTVA",
+      "brand": "Anthropic",
+      "adTitle": "Anthropic",
+      "category": "Tech",
       "celebrity": null
     }
   ]
