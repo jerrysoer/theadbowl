@@ -1,0 +1,40 @@
+name: Refresh Ad List
+
+on:
+  # 6 PM PST = 02:00 UTC (next day)
+  schedule:
+    - cron: '0 2 9 2 *'  # Feb 9, 2026 02:00 UTC = Feb 8 6:00 PM PST
+  # Allow manual trigger from GitHub Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run ad refresh script
+        id: refresh
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+        run: |
+          python scripts/refresh-ads.py && echo "changed=true" >> "$GITHUB_OUTPUT" || echo "changed=false" >> "$GITHUB_OUTPUT"
+
+      - name: Commit and push changes
+        if: steps.refresh.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/data/video-ids.json
+          git commit -m "Auto-refresh: add new Super Bowl LX ads [skip ci]"
+          git push
