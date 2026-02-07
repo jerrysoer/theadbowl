@@ -1,6 +1,22 @@
 const VIDEO_ID_PATTERN = /^[a-zA-Z0-9_-]{11}$/;
 const MAX_IDS = 50;
 
+// Simple in-memory rate limiter (per serverless instance)
+const rateLimit = new Map();
+const RATE_WINDOW = 60_000; // 1 minute
+const RATE_MAX = 30; // max requests per window per IP
+
+function checkRateLimit(ip) {
+  const now = Date.now();
+  const entry = rateLimit.get(ip);
+  if (!entry || now - entry.start > RATE_WINDOW) {
+    rateLimit.set(ip, { start: now, count: 1 });
+    return true;
+  }
+  entry.count++;
+  return entry.count <= RATE_MAX;
+}
+
 export default async function handler(req, res) {
   if (req.method === 'OPTIONS') {
     return res.status(204).end();
@@ -8,6 +24,12 @@ export default async function handler(req, res) {
 
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  // Rate limiting
+  const clientIp = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || 'unknown';
+  if (!checkRateLimit(clientIp)) {
+    return res.status(429).json({ error: 'Too many requests. Please slow down.' });
   }
 
   const { ids } = req.query;
