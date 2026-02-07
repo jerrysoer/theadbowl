@@ -4,6 +4,11 @@ Refresh video-ids.json with new Big Game LX ads from YouTube search.
 Merges new discoveries into the existing file without overwriting
 curated metadata (brand, category, celebrity) for existing entries.
 
+Filters out:
+  - Non-2026 videos (publishedAfter=2026-01-01)
+  - Broadcaster/news/commentary channels (blocklist)
+  - Non-ad content based on title keywords
+
 Usage:
     GOOGLE_API_KEY=... python scripts/refresh-ads.py
 
@@ -12,6 +17,7 @@ Exits with code 0 if changes were made, 1 if no new ads found.
 
 import json
 import os
+import re
 import sys
 from urllib.request import urlopen, Request
 from urllib.parse import urlencode
@@ -27,15 +33,91 @@ SEARCH_QUERIES = [
 ]
 MAX_RESULTS_PER_QUERY = 50
 
+# Channels to always exclude — broadcasters, news, commentary, NFL official
+BLOCKED_CHANNELS = {
+    'nfl',
+    'abc news',
+    'cbs news',
+    'nbc news',
+    'fox news',
+    'cnn',
+    'espn',
+    'good morning america',
+    'entertainment tonight',
+    'jimmy kimmel live',
+    'the tonight show starring jimmy fallon',
+    'late night with seth meyers',
+    'yahoo entertainment',
+    'page six',
+    'extratv',
+    'highlight heaven',
+    'clevver news',
+    'marca in english',
+    'nightcap',
+    'the rich eisen show',
+    'pbd podcast',
+    'benny johnson',
+    'comedy top plays',
+    'screen rant plus',
+    'sports wagon',
+    'hall of game',
+    'ad vault',
+    'dhar mann studios',
+    'fox 2 st. louis',
+    'mrbeast 2',
+    'creating wealth',
+}
+
+# Title patterns that indicate non-ad content
+BLOCKED_TITLE_PATTERNS = [
+    r'halftime\s+show',
+    r'half\s*time',
+    r'compilation',
+    r'all\s+time',
+    r'best\s+of',
+    r'top\s+\d+',
+    r'funniest',
+    r'parody',
+    r'reaction',
+    r'prediction',
+    r'leaked',
+    r'script',
+    r'full\s+game',
+    r'playoff',
+    r'#shorts',
+    r'press\s+conference',
+    r'reacts?\b',
+    r'slams?\b',
+    r'confirms?\b',
+    r'trolls?\b',
+    r'ice\b.*\bsuper\s*bowl',
+    r'going\s+to\s+the\s+super\s+bowl',
+]
+
+
+def is_blocked_channel(channel_title):
+    """Check if a channel is on the blocklist."""
+    return channel_title.strip().lower() in BLOCKED_CHANNELS
+
+
+def is_blocked_title(title):
+    """Check if a video title matches non-ad patterns."""
+    lower_title = title.lower()
+    for pattern in BLOCKED_TITLE_PATTERNS:
+        if re.search(pattern, lower_title):
+            return True
+    return False
+
 
 def search_youtube(query, max_results=50):
-    """Search YouTube for videos matching the query."""
+    """Search YouTube for videos matching the query, filtered to 2026."""
     params = urlencode({
         'part': 'snippet',
         'q': query,
         'type': 'video',
         'maxResults': min(max_results, 50),
         'order': 'viewCount',
+        'publishedAfter': '2026-01-01T00:00:00Z',
         'key': API_KEY,
     })
 
@@ -53,10 +135,21 @@ def search_youtube(query, max_results=50):
     for item in data.get('items', []):
         video_id = item['id']['videoId']
         snippet = item['snippet']
+        channel = snippet['channelTitle']
+        title = snippet['title']
+
+        if is_blocked_channel(channel):
+            print(f'  [SKIP channel] {channel}: {title}', file=sys.stderr)
+            continue
+
+        if is_blocked_title(title):
+            print(f'  [SKIP title] {channel}: {title}', file=sys.stderr)
+            continue
+
         results.append({
             'videoId': video_id,
-            'brand': snippet['channelTitle'],
-            'adTitle': snippet['title'],
+            'brand': channel,
+            'adTitle': title,
             'category': '',
             'celebrity': None,
         })
@@ -94,7 +187,7 @@ def main():
 
     print(f'Found {len(new_ads)} new ads:', file=sys.stderr)
     for ad in new_ads:
-        print(f'  - {ad["brand"]}: {ad["adTitle"]}', file=sys.stderr)
+        print(f'  + {ad["brand"]}: {ad["adTitle"]}', file=sys.stderr)
 
     # Merge into existing data
     data['ads'].extend(new_ads)

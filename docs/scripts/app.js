@@ -53,7 +53,7 @@
       const ids = videoMetadata.map(ad => ad.videoId);
       const stats = await api.fetchStats(ids);
 
-      // Merge metadata with live stats
+      // Merge metadata with live stats, filtering to 2026 brand ads only
       const statsMap = new Map(stats.map(v => [v.id, v]));
       mergedAds = videoMetadata.map(meta => {
         const live = statsMap.get(meta.videoId) || {};
@@ -69,7 +69,18 @@
           likeCount: live.likeCount || 0,
           commentCount: live.commentCount || 0,
           trending: live.trending || 0,
+          publishedAt: live.publishedAt || '',
         };
+      }).filter(ad => {
+        // Exclude non-2026 videos
+        if (ad.publishedAt && !ad.publishedAt.startsWith('2026')) return false;
+        // Exclude known broadcaster/non-brand channels
+        const blocked = ['nfl', 'abc news', 'cbs news', 'nbc news', 'espn',
+          'good morning america', 'entertainment tonight', 'fox news',
+          'jimmy kimmel live', 'the tonight show starring jimmy fallon',
+          'late night with seth meyers', 'yahoo entertainment', 'page six'];
+        if (blocked.includes(ad.brand.trim().toLowerCase())) return false;
+        return true;
       });
 
       if (mergedAds.length === 0) {
