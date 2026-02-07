@@ -151,6 +151,7 @@ class Leaderboard {
     iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
     iframe.allowFullscreen = true;
     iframe.setAttribute('title', 'YouTube video player');
+    iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-presentation allow-popups');
     playerEl.innerHTML = '';
     playerEl.appendChild(iframe);
   }

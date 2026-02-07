@@ -28,7 +28,7 @@ export default async function handler(req, res) {
 
   const invalid = videoIds.filter(id => !VIDEO_ID_PATTERN.test(id));
   if (invalid.length > 0) {
-    return res.status(400).json({ error: `Invalid video ID format: ${invalid.join(', ')}` });
+    return res.status(400).json({ error: 'One or more video IDs have invalid format' });
   }
 
   const apiKey = process.env.YOUTUBE_API_KEY;
