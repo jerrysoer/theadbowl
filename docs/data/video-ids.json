@@ -1,0 +1,28 @@
+{
+  "event": "Super Bowl LIX",
+  "year": 2026,
+  "lastUpdated": "2026-02-07",
+  "ads": [
+    {
+      "videoId": "dQw4w9WgXcQ",
+      "brand": "Doritos",
+      "adTitle": "Crash the Super Bowl",
+      "category": "Food & Beverage",
+      "celebrity": null
+    },
+    {
+      "videoId": "9bZkp7q19f0",
+      "brand": "Budweiser",
+      "adTitle": "Clydesdales Return",
+      "category": "Beer",
+      "celebrity": null
+    },
+    {
+      "videoId": "kJQP7kiw5Fk",
+      "brand": "T-Mobile",
+      "adTitle": "Connection",
+      "category": "Telecom",
+      "celebrity": null
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TheAdBowl — Super Bowl LIX Commercial Scoreboard</title>
+  <meta name="description" content="Live leaderboard tracking every Super Bowl LIX commercial by views, engagement, and trending velocity. The Super Bowl of Ads.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TheAdBowl — Super Bowl LIX Commercial Scoreboard">
+  <meta property="og:description" content="Live leaderboard tracking every Super Bowl LIX commercial by views, engagement, and trending velocity.">
+  <meta property="og:image" content="https://jerrysoer.github.io/theadbowl/assets/og-image.png">
+  <meta property="og:url" content="https://jerrysoer.github.io/theadbowl">
+  <meta property="og:site_name" content="TheAdBowl">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TheAdBowl — Super Bowl LIX Commercial Scoreboard">
+  <meta name="twitter:description" content="Live leaderboard tracking every Super Bowl LIX commercial by views, engagement, and trending velocity.">
+  <meta name="twitter:image" content="https://jerrysoer.github.io/theadbowl/assets/og-image.png">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "TheAdBowl",
+    "description": "Live Super Bowl LIX commercial performance tracker",
+    "url": "https://jerrysoer.github.io/theadbowl",
+    "applicationCategory": "Entertainment",
+    "operatingSystem": "Web"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/editorial.css">
+
+  <!-- Umami Analytics -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="placeholder"></script>
+</head>
+<body>
+  <!-- Masthead -->
+  <header class="masthead" role="banner">
+    <div class="masthead__inner">
+      <div class="masthead__brand">
+        <h1 class="masthead__title">THE AD BOWL</h1>
+        <p class="masthead__subtitle">Super Bowl LIX Commercial Scoreboard</p>
+      </div>
+      <div class="masthead__live" id="live-indicator" aria-live="polite" hidden>
+        <span class="live-dot" aria-hidden="true"></span>
+        LIVE
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+    <!-- Context Banner -->
+    <section class="context-banner" id="context-banner" aria-label="Event status">
+      <p id="context-message">Loading...</p>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar" aria-label="Aggregate statistics">
+      <div class="stats-bar__inner">
+        <div class="stat">
+          <span class="stat__value" id="stat-ads">—</span>
+          <span class="stat__label">Ads Tracked</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value" id="stat-views">—</span>
+          <span class="stat__label">Total Views</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value" id="stat-likes">—</span>
+          <span class="stat__label">Total Likes</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value" id="stat-updated">—</span>
+          <span class="stat__label">Last Updated</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sort Controls -->
+    <nav class="sort-controls" aria-label="Sort leaderboard">
+      <span class="sort-controls__label">Sort by</span>
+      <div class="sort-controls__buttons" role="radiogroup" aria-label="Sort order">
+        <button class="sort-btn active" data-sort="views" role="radio" aria-checked="true">Views</button>
+        <button class="sort-btn" data-sort="engagement" role="radio" aria-checked="false">Engagement</button>
+        <button class="sort-btn" data-sort="trending" role="radio" aria-checked="false">Trending</button>
+      </div>
+    </nav>
+
+    <!-- Leaderboard -->
+    <section class="leaderboard" id="leaderboard" aria-label="Ad leaderboard">
+      <!-- Cards populated by JS -->
+    </section>
+
+    <!-- Loading State -->
+    <div class="state-message" id="loading-state" aria-live="polite">
+      <div class="state-message__icon">&#9917;</div>
+      <h2 class="state-message__title">Warming Up...</h2>
+      <p class="state-message__text">Fetching the latest ad stats from YouTube</p>
+    </div>
+
+    <!-- Error State -->
+    <div class="state-message state-message--error" id="error-state" hidden aria-live="assertive">
+      <div class="state-message__icon">&#128250;</div>
+      <h2 class="state-message__title">Halftime Technical Difficulties</h2>
+      <p class="state-message__text" id="error-message">Something went wrong. We'll try again shortly.</p>
+      <button class="retry-btn" id="retry-btn">Try Again</button>
+    </div>
+
+    <!-- Empty State -->
+    <div class="state-message" id="empty-state" hidden aria-live="polite">
+      <div class="state-message__icon">&#127944;</div>
+      <h2 class="state-message__title">Pre-Game</h2>
+      <p class="state-message__text">No ads tracked yet. Check back closer to game day!</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <p>Built by <a href="https://github.com/jerrysoer" target="_blank" rel="noopener">Jerry Soer</a> &middot; Data from YouTube &middot; Not affiliated with the NFL</p>
+      <p class="footer__tech">Vanilla JS &middot; GitHub Pages &middot; Vercel Serverless</p>
+    </div>
+  </footer>
+
+  <!-- Scripts (dependency order) -->
+  <script src="scripts/config.js"></script>
+  <script src="scripts/api.js"></script>
+  <script src="scripts/leaderboard.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+</html>
