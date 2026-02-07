@@ -73,18 +73,25 @@ class Leaderboard {
     const videoUrl = `https://www.youtube.com/watch?v=${this._escapeAttr(ad.id)}`;
     const shareText = `${this._escape(ad.brand)} is #${rank} on TheAdBowl! ${this._formatNumber(ad.viewCount)} views`;
 
+    const embedId = this._escapeAttr(ad.id);
+
     card.innerHTML = `
       <span class="ad-card__rank ${rankClass}">${rank}</span>
-      <a href="${videoUrl}" target="_blank" rel="noopener" class="ad-card__thumbnail" aria-label="Watch on YouTube">
-        <img
-          src="${this._escapeAttr(ad.thumbnail)}"
-          alt="${this._escapeAttr(ad.brand)} Super Bowl ad"
-          width="640"
-          height="360"
-          ${lazyAttr}
-        />
-        ${trendingHtml}
-      </a>
+      <div class="ad-card__player" data-video-id="${embedId}">
+        <div class="ad-card__thumbnail" aria-label="Play video" role="button" tabindex="0">
+          <img
+            src="${this._escapeAttr(ad.thumbnail)}"
+            alt="${this._escapeAttr(ad.brand)} Super Bowl ad"
+            width="640"
+            height="360"
+            ${lazyAttr}
+          />
+          <div class="ad-card__play-btn" aria-hidden="true">
+            <svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.64 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24L27 14v20" fill="#fff"/></svg>
+          </div>
+          ${trendingHtml}
+        </div>
+      </div>
       <div class="ad-card__body">
         ${ad.category ? `<span class="ad-card__category">${this._escape(ad.category)}</span>` : ''}
         <h3 class="ad-card__brand">${this._escape(ad.brand)}</h3>
@@ -119,7 +126,33 @@ class Leaderboard {
       btn.addEventListener('click', (e) => this._handleShare(e));
     });
 
+    // Wire up click-to-play embed
+    const thumb = card.querySelector('.ad-card__thumbnail');
+    if (thumb) {
+      const play = () => this._embedVideo(card.querySelector('.ad-card__player'));
+      thumb.addEventListener('click', play);
+      thumb.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+      });
+    }
+
     return card;
+  }
+
+  /**
+   * Replace thumbnail with YouTube iframe embed.
+   */
+  _embedVideo(playerEl) {
+    if (!playerEl || playerEl.querySelector('iframe')) return;
+    const videoId = playerEl.dataset.videoId;
+    const iframe = document.createElement('iframe');
+    iframe.className = 'ad-card__iframe';
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    iframe.setAttribute('title', 'YouTube video player');
+    playerEl.innerHTML = '';
+    playerEl.appendChild(iframe);
   }
 
   /**

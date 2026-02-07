@@ -628,11 +628,19 @@ button {
   box-shadow: 0 0 16px rgba(205, 127, 50, 0.3);
 }
 
-/* --- Thumbnail --- */
+/* --- Player / Thumbnail --- */
+.ad-card__player {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+}
+
 .ad-card__thumbnail {
   position: relative;
-  display: block;
-  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.02);
 }
@@ -643,6 +651,11 @@ button {
   inset: 0;
   background: linear-gradient(to top, rgba(10, 14, 23, 0.6) 0%, transparent 40%);
   pointer-events: none;
+  transition: background var(--transition-fast);
+}
+
+.ad-card__thumbnail:hover::after {
+  background: rgba(10, 14, 23, 0.3);
 }
 
 .ad-card__thumbnail img {
@@ -654,6 +667,36 @@ button {
 
 .ad-card:hover .ad-card__thumbnail img {
   transform: scale(1.06);
+}
+
+/* Play button overlay */
+.ad-card__play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 2;
+  opacity: 0.85;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+}
+
+.ad-card__play-btn svg {
+  display: block;
+}
+
+.ad-card__thumbnail:hover .ad-card__play-btn {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Embedded iframe */
+.ad-card__iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 /* Trending badge */
