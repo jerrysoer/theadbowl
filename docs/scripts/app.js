@@ -23,7 +23,7 @@
    * Bootstrap the app.
    */
   async function init() {
-    updateContextBanner();
+    startCountdown();
     wireSortControls();
     retryBtn.addEventListener('click', refresh);
 
@@ -79,7 +79,6 @@
 
       leaderboard.render(mergedAds);
       updateStatsBar(mergedAds);
-      updateContextBanner();
       showState('content');
 
       // Show live indicator if during game window
@@ -110,30 +109,61 @@
   }
 
   /**
-   * Update the context banner with time-relative messaging.
+   * Countdown timer elements.
    */
-  function updateContextBanner() {
+  const countdownWrap = document.getElementById('countdown-wrap');
+  const postgameMessage = document.getElementById('postgame-message');
+  const cdDays = document.getElementById('cd-days');
+  const cdHours = document.getElementById('cd-hours');
+  const cdMins = document.getElementById('cd-mins');
+  const cdSecs = document.getElementById('cd-secs');
+  let countdownInterval = null;
+
+  /**
+   * Start the live countdown ticker (updates every second).
+   */
+  function startCountdown() {
+    updateCountdown();
+    countdownInterval = setInterval(updateCountdown, 1000);
+  }
+
+  function updateCountdown() {
     const now = new Date();
     const kickoff = CONFIG.KICKOFF_TIME;
     const diff = kickoff - now;
 
-    if (diff < 0) {
-      // Game day or past
+    if (diff <= 0) {
+      // Game has started or is over
+      clearInterval(countdownInterval);
+      countdownWrap.hidden = true;
+
       const hoursPast = Math.abs(diff) / (1000 * 60 * 60);
+      postgameMessage.hidden = false;
       if (hoursPast < 6) {
-        contextMessage.textContent = 'GAME DAY — Super Bowl LIX is LIVE. Stats updating every 2 minutes.';
+        postgameMessage.textContent = 'GAME DAY — Super Bowl LX is LIVE. Stats updating every 2 minutes.';
       } else {
-        contextMessage.textContent = 'Super Bowl LIX has wrapped. Final ad scoreboard below.';
+        postgameMessage.textContent = "That's a wrap on Super Bowl LX — thanks for watching the ads with us!";
       }
-    } else if (diff < 1000 * 60 * 60 * 24) {
-      // Less than 24 hours
-      const hours = Math.floor(diff / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      contextMessage.textContent = `Kickoff in ${hours}h ${minutes}m — Super Bowl LIX, Feb 9, 2026`;
-    } else {
-      const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-      contextMessage.textContent = `${days} days until Super Bowl LIX — Feb 9, 2026 at 6:30 PM ET`;
+      return;
     }
+
+    // Pre-game: show ticking countdown
+    countdownWrap.hidden = false;
+    postgameMessage.hidden = true;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+    cdDays.textContent = String(days).padStart(2, '0');
+    cdHours.textContent = String(hours).padStart(2, '0');
+    cdMins.textContent = String(mins).padStart(2, '0');
+    cdSecs.textContent = String(secs).padStart(2, '0');
+
+    contextMessage.textContent = days > 0
+      ? `Super Bowl LX — Feb 8, 2026`
+      : 'Kickoff today';
   }
 
   /**

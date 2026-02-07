@@ -17,7 +17,7 @@ from urllib.error import HTTPError
 
 
 API_KEY = os.environ.get("GOOGLE_API_KEY")
-SEARCH_QUERY = "Super Bowl LIX 2026 commercial ad"
+SEARCH_QUERY = "Super Bowl LX 2026 commercial ad"
 MAX_RESULTS = 50
 
 
@@ -66,7 +66,7 @@ def main():
     print(f"Found {len(ads)} results", file=sys.stderr)
 
     output = {
-        "event": "Super Bowl LIX",
+        "event": "Super Bowl LX",
         "year": 2026,
         "lastUpdated": "2026-02-07",
         "ads": ads,

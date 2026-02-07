@@ -1,6 +1,6 @@
 # TheAdBowl
 
-**Live Super Bowl LIX commercial scoreboard** — tracking every ad's views, engagement, and trending velocity in real time.
+**Live Super Bowl LX commercial scoreboard** — tracking every ad's views, engagement, and trending velocity in real time.
 
 [**View Live**](https://jerrysoer.github.io/theadbowl)
 
