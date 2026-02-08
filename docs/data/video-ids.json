@@ -1,7 +1,7 @@
 {
   "event": "Big Game LX",
   "year": 2026,
-  "lastUpdated": "2026-02-07",
+  "lastUpdated": "2026-02-07T18:00:00Z",
   "ads": [
     {
       "videoId": "a_mh-v02-Tw",
@@ -74,11 +74,46 @@
       "celebrity": "Andy Samberg"
     },
     {
-      "videoId": "PGkhZ5fToOk",
-      "brand": "Michelob ULTRA",
-      "adTitle": "The ULTRA Instructor",
-      "category": "Beer",
-      "celebrity": "Kurt Russell"
+      "videoId": "uyE4IZDPdBg",
+      "brand": "Volkswagen",
+      "adTitle": "The Great Invitation: Drivers Wanted",
+      "category": "Automotive",
+      "celebrity": null
+    },
+    {
+      "videoId": "si3bnmPGbPM",
+      "brand": "State Farm",
+      "adTitle": "Stop Livin' on a Prayer",
+      "category": "Insurance",
+      "celebrity": "Danny McBride, Keegan-Michael Key, Hailee Steinfeld"
+    },
+    {
+      "videoId": "T1z-xbTkJNM",
+      "brand": "Kinder Bueno",
+      "adTitle": "Yes Bueno",
+      "category": "Candy",
+      "celebrity": "William Fichtner, Paige DeSorbo"
+    },
+    {
+      "videoId": "OheUzrXsKrY",
+      "brand": "Ring",
+      "adTitle": "Be A Hero In Your Neighborhood",
+      "category": "Tech",
+      "celebrity": null
+    },
+    {
+      "videoId": "jI9V70EAXiI",
+      "brand": "Manscaped",
+      "adTitle": "Hair Ballad",
+      "category": "Personal Care",
+      "celebrity": null
+    },
+    {
+      "videoId": "yogNTgCr9-A",
+      "brand": "Pokemon",
+      "adTitle": "In the Studio",
+      "category": "Entertainment",
+      "celebrity": null
     },
     {
       "videoId": "KWDINj9-xX8",
@@ -268,6 +303,20 @@
       "adTitle": "Whatever Comes Your Way",
       "category": "Automotive",
       "celebrity": null
+    },
+    {
+      "videoId": "sCyiXmxHqSg",
+      "brand": "Amazon Alexa+",
+      "adTitle": "Alexaaaa+",
+      "category": "Tech",
+      "celebrity": "Chris Hemsworth, Elsa Pataky"
+    },
+    {
+      "videoId": "h_3eB7omJO4",
+      "brand": "T-Mobile",
+      "adTitle": "Tell Me Why",
+      "category": "Telecom",
+      "celebrity": "Backstreet Boys, Machine Gun Kelly, Druski"
     }
   ]
 }

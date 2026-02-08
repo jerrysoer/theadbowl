@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TheAdBowl — Big Game LX Commercial Scoreboard | Live Ad Rankings 2026</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏈</text></svg>">
-  <meta name="description" content="Live leaderboard ranking every 2026 Big Game LX commercial by views, likes, engagement, and trending velocity. Track 37+ ads from Budweiser, Pepsi, Google, and more in real time.">
+  <meta name="description" content="Live leaderboard ranking every 2026 Big Game LX commercial by views, likes, engagement, and trending velocity. Track 45+ ads from Budweiser, Pepsi, Google, and more in real time.">
   <link rel="canonical" href="https://jerrysoer.github.io/theadbowl/">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Jerry Soer">
@@ -15,7 +15,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="TheAdBowl — Live Big Game LX Ad Rankings">
-  <meta property="og:description" content="Real-time scoreboard ranking every 2026 Big Game commercial by views, engagement, and trending velocity. 37+ ads tracked live.">
+  <meta property="og:description" content="Real-time scoreboard ranking every 2026 Big Game commercial by views, engagement, and trending velocity. 45+ ads tracked live.">
   <meta property="og:image" content="https://jerrysoer.github.io/theadbowl/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -27,7 +27,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="TheAdBowl — Live Big Game LX Ad Rankings">
-  <meta name="twitter:description" content="Real-time scoreboard ranking every 2026 Big Game commercial. 37+ ads tracked by views, engagement, and trending velocity.">
+  <meta name="twitter:description" content="Real-time scoreboard ranking every 2026 Big Game commercial. 45+ ads tracked by views, engagement, and trending velocity.">
   <meta name="twitter:image" content="https://jerrysoer.github.io/theadbowl/assets/og-image.png">
   <meta name="twitter:image:alt" content="TheAdBowl — Big Game LX Commercial Scoreboard">
 
@@ -92,9 +92,15 @@
         </h1>
         <p class="masthead__subtitle">COMMERCIAL SCOREBOARD</p>
       </div>
-      <div class="masthead__live" id="live-indicator" aria-live="polite" hidden>
-        <span class="live-dot" aria-hidden="true"></span>
-        LIVE
+      <div class="masthead__actions">
+        <button class="share-leaderboard-btn" id="share-leaderboard-btn" title="Share this leaderboard">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+          Share
+        </button>
+        <div class="masthead__live" id="live-indicator" aria-live="polite" hidden>
+          <span class="live-dot" aria-hidden="true"></span>
+          LIVE
+        </div>
       </div>
     </div>
   </header>
@@ -175,6 +181,14 @@
       </div>
     </nav>
 
+    <!-- Search / Filter Bar -->
+    <div class="filter-bar" id="filter-bar">
+      <div class="filter-bar__inner">
+        <svg class="filter-bar__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="search" id="celebrity-search" class="filter-bar__search" placeholder="Search by celebrity, brand, or category..." autocomplete="off" />
+      </div>
+    </div>
+
     <!-- Leaderboard -->
     <section class="leaderboard" id="leaderboard" aria-label="Ad leaderboard">
       <!-- Cards populated by JS -->
@@ -209,6 +223,15 @@
       <p class="state-message__text">No ads tracked yet. Check back closer to kickoff!</p>
     </div>
   </main>
+
+  <!-- My Top 3 Ballot (floating bar) -->
+  <div class="ballot" id="ballot" hidden aria-label="Your top 3 picks">
+    <div class="ballot__inner">
+      <span class="ballot__label">MY TOP 3</span>
+      <div class="ballot__picks" id="ballot-picks"></div>
+      <button class="ballot__share-btn" id="ballot-share-btn">Share My Top 3</button>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="footer" role="contentinfo">
