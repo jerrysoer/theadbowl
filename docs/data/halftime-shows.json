@@ -1,0 +1,227 @@
+{
+  "event": "Super Bowl Halftime Shows",
+  "description": "Historical Super Bowl halftime performances ranked by YouTube views",
+  "lastUpdated": "2026-02-09T00:00:00Z",
+  "shows": [
+    {
+      "videoId": "",
+      "artist": "Bad Bunny",
+      "featuring": "Lady Gaga, Ricky Martin",
+      "year": 2026,
+      "superBowl": "LX",
+      "songs": "Tití Me Preguntó, Yo Perreo Sola, Safaera, Voy a Llevarte Pa' PR, Monaco, Die with a Smile, BAILE INoLVIDABLE, NUEVAYoL, LO QUE LE PASÓ A HAWAii, El Apagón, Café Con Ron, DeBÍ TiRAR MáS FOToS",
+      "viewCount": 0,
+      "likeCount": 0,
+      "commentCount": 0
+    },
+    {
+      "videoId": "KDorKy-13ak",
+      "artist": "Kendrick Lamar",
+      "featuring": "SZA",
+      "year": 2025,
+      "superBowl": "LIX",
+      "songs": "Not Like Us, Humble, DNA, TV Off, Squabble Up, Luther, All the Stars",
+      "viewCount": 161869809,
+      "likeCount": 3729243,
+      "commentCount": 208067
+    },
+    {
+      "videoId": "7hYbrdC_-s8",
+      "artist": "Usher",
+      "featuring": null,
+      "year": 2024,
+      "superBowl": "LVIII",
+      "songs": "Caught Up, Love in This Club, My Boo, Burn, OMG, Yeah!",
+      "viewCount": 37895329,
+      "likeCount": 618121,
+      "commentCount": 42033
+    },
+    {
+      "videoId": "HjBo--1n8lI",
+      "artist": "Rihanna",
+      "featuring": null,
+      "year": 2023,
+      "superBowl": "LVII",
+      "songs": "Where Have You Been, Only Girl, We Found Love, Umbrella, Diamonds",
+      "viewCount": 297267438,
+      "likeCount": 3970896,
+      "commentCount": 172974
+    },
+    {
+      "videoId": "gdsUKphmB3Y",
+      "artist": "Dr. Dre, Snoop Dogg, Eminem, Mary J. Blige & Kendrick Lamar",
+      "featuring": "50 Cent",
+      "year": 2022,
+      "superBowl": "LVI",
+      "songs": "The Next Episode, California Love, m.A.A.d city, Lose Yourself, Still D.R.E., Family Affair",
+      "viewCount": 382438303,
+      "likeCount": 5309584,
+      "commentCount": 238649
+    },
+    {
+      "videoId": "9rhadTURsrw",
+      "artist": "The Weeknd",
+      "featuring": null,
+      "year": 2021,
+      "superBowl": "LV",
+      "songs": "Starboy, The Hills, Can't Feel My Face, Blinding Lights, Save Your Tears",
+      "viewCount": 82196863,
+      "likeCount": 1671004,
+      "commentCount": 125768
+    },
+    {
+      "videoId": "pILCn6VO_RU",
+      "artist": "Shakira & Jennifer Lopez",
+      "featuring": "Bad Bunny, J Balvin",
+      "year": 2020,
+      "superBowl": "LIV",
+      "songs": "She Wolf, Whenever Wherever, Hips Don't Lie, Jenny from the Block, On the Floor, Waka Waka, Let's Get Loud",
+      "viewCount": 335611033,
+      "likeCount": 4036716,
+      "commentCount": 333357
+    },
+    {
+      "videoId": "RDfiVrHTJNM",
+      "artist": "Maroon 5",
+      "featuring": "Travis Scott, Big Boi",
+      "year": 2019,
+      "superBowl": "LIII",
+      "songs": "Harder to Breathe, This Love, Girls Like You, She Will Be Loved, Moves Like Jagger, Sugar",
+      "viewCount": 3321131,
+      "likeCount": 51067,
+      "commentCount": 7864
+    },
+    {
+      "videoId": "v6xUgawDQB0",
+      "artist": "Justin Timberlake",
+      "featuring": null,
+      "year": 2018,
+      "superBowl": "LII",
+      "songs": "Filthy, Rock Your Body, SexyBack, Suit & Tie, Mirrors, Can't Stop the Feeling",
+      "viewCount": 38020713,
+      "likeCount": 338938,
+      "commentCount": 20536
+    },
+    {
+      "videoId": "txXwg712zw4",
+      "artist": "Lady Gaga",
+      "featuring": null,
+      "year": 2017,
+      "superBowl": "LI",
+      "songs": "Poker Face, Born This Way, Telephone, Just Dance, Million Reasons, Bad Romance",
+      "viewCount": 80665568,
+      "likeCount": 922707,
+      "commentCount": 72496
+    },
+    {
+      "videoId": "c9cUytejf1k",
+      "artist": "Coldplay",
+      "featuring": "Beyonce, Bruno Mars",
+      "year": 2016,
+      "superBowl": "50",
+      "songs": "Yellow, Viva la Vida, Paradise, Adventure of a Lifetime, Uptown Funk, Formation, Fix You",
+      "viewCount": 147584592,
+      "likeCount": 1333558,
+      "commentCount": 42168
+    },
+    {
+      "videoId": "ZD1QrIe--_Y",
+      "artist": "Katy Perry",
+      "featuring": "Lenny Kravitz, Missy Elliott",
+      "year": 2015,
+      "superBowl": "XLIX",
+      "songs": "Roar, Dark Horse, I Kissed a Girl, Teenage Dream, California Gurls, Firework",
+      "viewCount": 107756537,
+      "likeCount": 859793,
+      "commentCount": 37667
+    },
+    {
+      "videoId": "yw7HHSr5uyY",
+      "artist": "Beyonce",
+      "featuring": "Destiny's Child",
+      "year": 2013,
+      "superBowl": "XLVII",
+      "songs": "Love on Top, Crazy in Love, End of Time, Baby Boy, Bootylicious, Single Ladies, Halo",
+      "viewCount": 9196734,
+      "likeCount": 89436,
+      "commentCount": 3622
+    },
+    {
+      "videoId": "ucdaEjd1Y4A",
+      "artist": "Madonna",
+      "featuring": "LMFAO, Nicki Minaj, M.I.A., Cee Lo Green",
+      "year": 2012,
+      "superBowl": "XLVI",
+      "songs": "Vogue, Music, Give Me All Your Luvin', Like a Prayer",
+      "viewCount": 56452985,
+      "likeCount": 457147,
+      "commentCount": 33078
+    },
+    {
+      "videoId": "i4-0nbHFi4o",
+      "artist": "Bruce Springsteen & The E Street Band",
+      "featuring": null,
+      "year": 2009,
+      "superBowl": "XLIII",
+      "songs": "Tenth Avenue Freeze-Out, Born to Run, Working on a Dream, Glory Days",
+      "viewCount": 776007,
+      "likeCount": 7220,
+      "commentCount": 723
+    },
+    {
+      "videoId": "haCk5XFj1lw",
+      "artist": "Tom Petty & The Heartbreakers",
+      "featuring": null,
+      "year": 2008,
+      "superBowl": "XLII",
+      "songs": "American Girl, I Won't Back Down, Free Fallin', Runnin' Down a Dream",
+      "viewCount": 1141738,
+      "likeCount": 4652,
+      "commentCount": 801
+    },
+    {
+      "videoId": "",
+      "artist": "Prince",
+      "featuring": null,
+      "year": 2007,
+      "superBowl": "XLI",
+      "songs": "Let's Go Crazy, Baby I'm a Star, Proud Mary, All Along the Watchtower, Purple Rain",
+      "viewCount": 0,
+      "likeCount": 0,
+      "commentCount": 0
+    },
+    {
+      "videoId": "89Rtw1XjncE",
+      "artist": "The Rolling Stones",
+      "featuring": null,
+      "year": 2006,
+      "superBowl": "XL",
+      "songs": "Start Me Up, Rough Justice, Satisfaction",
+      "viewCount": 665982,
+      "likeCount": 6047,
+      "commentCount": 555
+    },
+    {
+      "videoId": "Pex27hW9cqM",
+      "artist": "Paul McCartney",
+      "featuring": null,
+      "year": 2005,
+      "superBowl": "XXXIX",
+      "songs": "Drive My Car, Get Back, Live and Let Die, Hey Jude",
+      "viewCount": 24691,
+      "likeCount": 23,
+      "commentCount": 6
+    },
+    {
+      "videoId": "EsopN7JKUVs",
+      "artist": "Michael Jackson",
+      "featuring": null,
+      "year": 1993,
+      "superBowl": "XXVII",
+      "songs": "Jam, Billie Jean, Black or White, We Are the World, Heal the World",
+      "viewCount": 52956968,
+      "likeCount": 490616,
+      "commentCount": 31425
+    }
+  ]
+}

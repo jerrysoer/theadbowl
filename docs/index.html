@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TheAdBowl — Big Game LX Commercial Scoreboard | Live Ad Rankings 2026</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏈</text></svg>">
-  <meta name="description" content="Live leaderboard ranking every 2026 Big Game LX commercial by views, likes, engagement, and trending velocity. Track 45+ ads from Budweiser, Pepsi, Google, and more in real time.">
+  <meta name="description" content="Live leaderboard ranking every 2026 Big Game LX commercial by views, likes, engagement, and trending velocity. Plus every halftime show ranked by views. Track 45+ ads from Budweiser, Pepsi, Google, and more in real time.">
   <link rel="canonical" href="https://jerrysoer.github.io/theadbowl/">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Jerry Soer">
   <meta name="theme-color" content="#0A0E17">
-  <meta name="keywords" content="big game commercials 2026, ad rankings, commercial scoreboard, ad tracker, game day ads, live ad stats">
+  <meta name="keywords" content="big game commercials 2026, ad rankings, commercial scoreboard, ad tracker, game day ads, live ad stats, halftime show rankings, super bowl halftime">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="TheAdBowl — Live Big Game LX Ad Rankings">
-  <meta property="og:description" content="Real-time scoreboard ranking every 2026 Big Game commercial by views, engagement, and trending velocity. 45+ ads tracked live.">
+  <meta property="og:description" content="Real-time scoreboard ranking every 2026 Big Game commercial by views, engagement, and trending velocity. Plus every halftime show ranked. 45+ ads tracked live.">
   <meta property="og:image" content="https://jerrysoer.github.io/theadbowl/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -37,7 +37,7 @@
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "TheAdBowl",
-    "description": "Live 2026 Big Game commercial performance tracker — ranking every ad by views, engagement, and trending velocity in real time",
+    "description": "Live 2026 Big Game commercial performance tracker — ranking every ad by views, engagement, and trending velocity in real time. Plus historical halftime show rankings.",
     "url": "https://jerrysoer.github.io/theadbowl/",
     "applicationCategory": "Entertainment",
     "operatingSystem": "Web",
@@ -105,122 +105,266 @@
     </div>
   </header>
 
+  <!-- Section Navigation -->
+  <nav class="section-nav" id="section-nav" aria-label="Content sections">
+    <div class="section-nav__inner">
+      <button class="section-nav__btn section-nav__btn--active" data-section="ads" role="tab" aria-selected="true" aria-controls="ads-section">
+        <span class="section-nav__icon">&#x1F4FA;</span>
+        Commercials
+      </button>
+      <button class="section-nav__btn" data-section="halftime" role="tab" aria-selected="false" aria-controls="halftime-section">
+        <span class="section-nav__icon">&#x1F3A4;</span>
+        Halftime
+      </button>
+      <div class="section-nav__indicator" aria-hidden="true"></div>
+    </div>
+  </nav>
+
   <main role="main">
-    <!-- Context Banner / Countdown -->
-    <section class="context-banner" id="context-banner" aria-label="Event status">
-      <div class="context-banner__inner">
-        <div class="context-banner__pulse" aria-hidden="true"></div>
-        <!-- Pre-game: countdown timer -->
-        <div id="countdown-wrap" class="countdown">
-          <p class="countdown__label" id="context-message">Kickoff in</p>
-          <div class="countdown__timer" id="countdown-timer">
-            <div class="countdown__unit">
-              <span class="countdown__digit" id="cd-days">00</span>
-              <span class="countdown__unit-label">Days</span>
+    <!-- ===================== ADS SECTION ===================== -->
+    <div id="ads-section" class="section section--active" role="tabpanel" aria-labelledby="ads-tab">
+
+      <!-- Context Banner / Countdown -->
+      <section class="context-banner" id="context-banner" aria-label="Event status">
+        <div class="context-banner__inner">
+          <div class="context-banner__pulse" aria-hidden="true"></div>
+          <!-- Pre-game: countdown timer -->
+          <div id="countdown-wrap" class="countdown">
+            <p class="countdown__label" id="context-message">Kickoff in</p>
+            <div class="countdown__timer" id="countdown-timer">
+              <div class="countdown__unit">
+                <span class="countdown__digit" id="cd-days">00</span>
+                <span class="countdown__unit-label">Days</span>
+              </div>
+              <span class="countdown__sep">:</span>
+              <div class="countdown__unit">
+                <span class="countdown__digit" id="cd-hours">00</span>
+                <span class="countdown__unit-label">Hrs</span>
+              </div>
+              <span class="countdown__sep">:</span>
+              <div class="countdown__unit">
+                <span class="countdown__digit" id="cd-mins">00</span>
+                <span class="countdown__unit-label">Min</span>
+              </div>
+              <span class="countdown__sep">:</span>
+              <div class="countdown__unit">
+                <span class="countdown__digit" id="cd-secs">00</span>
+                <span class="countdown__unit-label">Sec</span>
+              </div>
             </div>
-            <span class="countdown__sep">:</span>
-            <div class="countdown__unit">
-              <span class="countdown__digit" id="cd-hours">00</span>
-              <span class="countdown__unit-label">Hrs</span>
-            </div>
-            <span class="countdown__sep">:</span>
-            <div class="countdown__unit">
-              <span class="countdown__digit" id="cd-mins">00</span>
-              <span class="countdown__unit-label">Min</span>
-            </div>
-            <span class="countdown__sep">:</span>
-            <div class="countdown__unit">
-              <span class="countdown__digit" id="cd-secs">00</span>
-              <span class="countdown__unit-label">Sec</span>
+          </div>
+          <!-- Post-game: thank you message + next year countdown (hidden by default) -->
+          <div id="postgame-wrap" class="postgame-wrap" hidden>
+            <p id="postgame-message" class="postgame-message">That's a wrap on Big Game LX — thanks for watching the ads with us!</p>
+            <div id="next-sb-countdown" class="next-sb-countdown" hidden>
+              <p class="next-sb-countdown__label">Big Game LXI — Feb 14, 2027</p>
+              <div class="countdown__timer">
+                <div class="countdown__unit">
+                  <span class="countdown__digit" id="next-cd-days">00</span>
+                  <span class="countdown__unit-label">Days</span>
+                </div>
+                <span class="countdown__sep">:</span>
+                <div class="countdown__unit">
+                  <span class="countdown__digit" id="next-cd-hours">00</span>
+                  <span class="countdown__unit-label">Hrs</span>
+                </div>
+                <span class="countdown__sep">:</span>
+                <div class="countdown__unit">
+                  <span class="countdown__digit" id="next-cd-mins">00</span>
+                  <span class="countdown__unit-label">Min</span>
+                </div>
+                <span class="countdown__sep">:</span>
+                <div class="countdown__unit">
+                  <span class="countdown__digit" id="next-cd-secs">00</span>
+                  <span class="countdown__unit-label">Sec</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <!-- Post-game: thank you message (hidden by default) -->
-        <p id="postgame-message" class="postgame-message" hidden>That's a wrap on Big Game LX — thanks for watching the ads with us!</p>
-      </div>
-    </section>
+      </section>
 
-    <!-- Stats Bar -->
-    <section class="stats-bar" aria-label="Aggregate statistics">
-      <div class="stats-bar__inner">
-        <div class="stat">
-          <span class="stat__value" id="stat-ads">&mdash;</span>
-          <span class="stat__label">Ads Tracked</span>
+      <!-- Ads Stats Bar -->
+      <section class="stats-bar" aria-label="Aggregate statistics">
+        <div class="stats-bar__inner">
+          <div class="stat">
+            <span class="stat__value" id="stat-ads">&mdash;</span>
+            <span class="stat__label">Ads Tracked</span>
+          </div>
+          <div class="stat stat--divider"></div>
+          <div class="stat">
+            <span class="stat__value" id="stat-views">&mdash;</span>
+            <span class="stat__label">Total Views</span>
+          </div>
+          <div class="stat stat--divider"></div>
+          <div class="stat">
+            <span class="stat__value" id="stat-likes">&mdash;</span>
+            <span class="stat__label">Total Likes</span>
+          </div>
+          <div class="stat stat--divider"></div>
+          <div class="stat">
+            <span class="stat__value" id="stat-updated">&mdash;</span>
+            <span class="stat__label">Last Updated</span>
+          </div>
         </div>
-        <div class="stat stat--divider"></div>
-        <div class="stat">
-          <span class="stat__value" id="stat-views">&mdash;</span>
-          <span class="stat__label">Total Views</span>
-        </div>
-        <div class="stat stat--divider"></div>
-        <div class="stat">
-          <span class="stat__value" id="stat-likes">&mdash;</span>
-          <span class="stat__label">Total Likes</span>
-        </div>
-        <div class="stat stat--divider"></div>
-        <div class="stat">
-          <span class="stat__value" id="stat-updated">&mdash;</span>
-          <span class="stat__label">Last Updated</span>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Sort Controls -->
-    <nav class="sort-controls" aria-label="Sort leaderboard">
-      <span class="sort-controls__label">Rank by</span>
-      <div class="sort-controls__buttons" role="radiogroup" aria-label="Sort order">
-        <button class="sort-btn active" data-sort="views" role="radio" aria-checked="true">
-          <span class="sort-btn__icon">&#x1F441;</span> Views
-        </button>
-        <button class="sort-btn" data-sort="engagement" role="radio" aria-checked="false">
-          <span class="sort-btn__icon">&#x1F525;</span> Engagement
-        </button>
-        <button class="sort-btn" data-sort="trending" role="radio" aria-checked="false">
-          <span class="sort-btn__icon">&#x1F680;</span> Trending
-        </button>
-      </div>
-    </nav>
+      <!-- Ads Sort Controls -->
+      <nav class="sort-controls" aria-label="Sort leaderboard">
+        <span class="sort-controls__label">Rank by</span>
+        <div class="sort-controls__buttons" role="radiogroup" aria-label="Sort order">
+          <button class="sort-btn active" data-sort="views" role="radio" aria-checked="true">
+            <span class="sort-btn__icon">&#x1F441;</span> Views
+          </button>
+          <button class="sort-btn" data-sort="engagement" role="radio" aria-checked="false">
+            <span class="sort-btn__icon">&#x1F525;</span> Engagement
+          </button>
+          <button class="sort-btn" data-sort="trending" role="radio" aria-checked="false">
+            <span class="sort-btn__icon">&#x1F680;</span> Trending
+          </button>
+        </div>
+      </nav>
 
-    <!-- Search / Filter Bar -->
-    <div class="filter-bar" id="filter-bar">
-      <div class="filter-bar__inner">
-        <svg class="filter-bar__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <input type="search" id="celebrity-search" class="filter-bar__search" placeholder="Search by celebrity, brand, or category..." autocomplete="off" />
+      <!-- Ads Search / Filter Bar -->
+      <div class="filter-bar" id="filter-bar">
+        <div class="filter-bar__inner">
+          <svg class="filter-bar__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="search" id="celebrity-search" class="filter-bar__search" placeholder="Search by celebrity, brand, or category..." autocomplete="off" />
+        </div>
       </div>
+
+      <!-- Leaderboard -->
+      <section class="leaderboard" id="leaderboard" aria-label="Ad leaderboard">
+        <!-- Cards populated by JS -->
+      </section>
+
+      <!-- Ads Loading State -->
+      <div class="state-message" id="loading-state" aria-live="polite">
+        <div class="state-message__icon">
+          <div class="spinner" aria-hidden="true">
+            <div class="spinner__ring"></div>
+            <div class="spinner__football">&#127944;</div>
+          </div>
+        </div>
+        <h2 class="state-message__title">Warming Up<span class="loading-dots"><span>.</span><span>.</span><span>.</span></span></h2>
+        <p class="state-message__text">Pulling live stats from YouTube</p>
+      </div>
+
+      <!-- Ads Error State -->
+      <div class="state-message state-message--error" id="error-state" hidden aria-live="assertive">
+        <div class="state-message__icon">&#128250;</div>
+        <h2 class="state-message__title">Halftime Technical Difficulties</h2>
+        <p class="state-message__text" id="error-message">Something went wrong. We'll try again shortly.</p>
+        <button class="retry-btn" id="retry-btn">
+          <span class="retry-btn__arrow">&#x21BB;</span> Try Again
+        </button>
+      </div>
+
+      <!-- Ads Empty State -->
+      <div class="state-message" id="empty-state" hidden aria-live="polite">
+        <div class="state-message__icon">&#127944;</div>
+        <h2 class="state-message__title">Pre-Game Warmup</h2>
+        <p class="state-message__text">No ads tracked yet. Check back closer to kickoff!</p>
+      </div>
+
     </div>
 
-    <!-- Leaderboard -->
-    <section class="leaderboard" id="leaderboard" aria-label="Ad leaderboard">
-      <!-- Cards populated by JS -->
-    </section>
+    <!-- ===================== HALFTIME SECTION ===================== -->
+    <div id="halftime-section" class="section section--halftime" role="tabpanel" aria-labelledby="halftime-tab" hidden>
 
-    <!-- Loading State -->
-    <div class="state-message" id="loading-state" aria-live="polite">
-      <div class="state-message__icon">
-        <div class="spinner" aria-hidden="true">
-          <div class="spinner__ring"></div>
-          <div class="spinner__football">&#127944;</div>
+      <!-- Halftime Hero Banner -->
+      <section class="halftime-banner" aria-label="Halftime shows">
+        <div class="halftime-banner__inner">
+          <div class="halftime-banner__pulse" aria-hidden="true"></div>
+          <p class="halftime-banner__eyebrow">20+ Years of Iconic Performances</p>
+          <h2 class="halftime-banner__title">Halftime Hall of Fame</h2>
+          <p class="halftime-banner__subtitle">Every legendary halftime show, ranked by the fans</p>
+        </div>
+      </section>
+
+      <!-- Halftime Stats Bar -->
+      <section class="stats-bar stats-bar--halftime" aria-label="Halftime statistics">
+        <div class="stats-bar__inner">
+          <div class="stat">
+            <span class="stat__value" id="ht-stat-shows">&mdash;</span>
+            <span class="stat__label">Shows Ranked</span>
+          </div>
+          <div class="stat stat--divider"></div>
+          <div class="stat">
+            <span class="stat__value" id="ht-stat-views">&mdash;</span>
+            <span class="stat__label">Total Views</span>
+          </div>
+          <div class="stat stat--divider"></div>
+          <div class="stat">
+            <span class="stat__value" id="ht-stat-likes">&mdash;</span>
+            <span class="stat__label">Total Likes</span>
+          </div>
+          <div class="stat stat--divider"></div>
+          <div class="stat">
+            <span class="stat__value" id="ht-stat-span">&mdash;</span>
+            <span class="stat__label">Years Covered</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Halftime Sort Controls -->
+      <nav class="sort-controls sort-controls--halftime" aria-label="Sort halftime shows">
+        <span class="sort-controls__label">Rank by</span>
+        <div class="sort-controls__buttons" role="radiogroup" aria-label="Sort order">
+          <button class="ht-sort-btn sort-btn sort-btn--halftime active" data-sort="views" role="radio" aria-checked="true">
+            <span class="sort-btn__icon">&#x1F441;</span> Views
+          </button>
+          <button class="ht-sort-btn sort-btn sort-btn--halftime" data-sort="engagement" role="radio" aria-checked="false">
+            <span class="sort-btn__icon">&#x1F525;</span> Engagement
+          </button>
+          <button class="ht-sort-btn sort-btn sort-btn--halftime" data-sort="year" role="radio" aria-checked="false">
+            <span class="sort-btn__icon">&#x1F4C5;</span> Year
+          </button>
+        </div>
+      </nav>
+
+      <!-- Halftime Search / Filter Bar -->
+      <div class="filter-bar" id="ht-filter-bar">
+        <div class="filter-bar__inner">
+          <svg class="filter-bar__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="search" id="halftime-search" class="filter-bar__search" placeholder="Search by artist, year, or song..." autocomplete="off" />
         </div>
       </div>
-      <h2 class="state-message__title">Warming Up<span class="loading-dots"><span>.</span><span>.</span><span>.</span></span></h2>
-      <p class="state-message__text">Pulling live stats from YouTube</p>
-    </div>
 
-    <!-- Error State -->
-    <div class="state-message state-message--error" id="error-state" hidden aria-live="assertive">
-      <div class="state-message__icon">&#128250;</div>
-      <h2 class="state-message__title">Halftime Technical Difficulties</h2>
-      <p class="state-message__text" id="error-message">Something went wrong. We'll try again shortly.</p>
-      <button class="retry-btn" id="retry-btn">
-        <span class="retry-btn__arrow">&#x21BB;</span> Try Again
-      </button>
-    </div>
+      <!-- Halftime Leaderboard -->
+      <section class="leaderboard leaderboard--halftime" id="halftime-leaderboard" aria-label="Halftime show leaderboard">
+        <!-- Cards populated by JS -->
+      </section>
 
-    <!-- Empty State -->
-    <div class="state-message" id="empty-state" hidden aria-live="polite">
-      <div class="state-message__icon">&#127944;</div>
-      <h2 class="state-message__title">Pre-Game Warmup</h2>
-      <p class="state-message__text">No ads tracked yet. Check back closer to kickoff!</p>
+      <!-- Halftime Loading State -->
+      <div class="state-message" id="ht-loading-state" aria-live="polite">
+        <div class="state-message__icon">
+          <div class="spinner" aria-hidden="true">
+            <div class="spinner__ring spinner__ring--halftime"></div>
+            <div class="spinner__football">&#127908;</div>
+          </div>
+        </div>
+        <h2 class="state-message__title">Loading the Legends<span class="loading-dots"><span>.</span><span>.</span><span>.</span></span></h2>
+        <p class="state-message__text">Pulling halftime show stats from YouTube</p>
+      </div>
+
+      <!-- Halftime Error State -->
+      <div class="state-message state-message--error" id="ht-error-state" hidden aria-live="assertive">
+        <div class="state-message__icon">&#127908;</div>
+        <h2 class="state-message__title">Stage Malfunction</h2>
+        <p class="state-message__text" id="ht-error-message">Something went wrong loading halftime shows.</p>
+        <button class="retry-btn retry-btn--halftime" id="ht-retry-btn">
+          <span class="retry-btn__arrow">&#x21BB;</span> Try Again
+        </button>
+      </div>
+
+      <!-- Halftime Empty State -->
+      <div class="state-message" id="ht-empty-state" hidden aria-live="polite">
+        <div class="state-message__icon">&#127908;</div>
+        <h2 class="state-message__title">No Shows Found</h2>
+        <p class="state-message__text">No halftime shows match your search.</p>
+      </div>
+
     </div>
   </main>
 
@@ -245,6 +389,7 @@
   <script src="scripts/config.js"></script>
   <script src="scripts/api.js"></script>
   <script src="scripts/leaderboard.js"></script>
+  <script src="scripts/halftime.js"></script>
   <script src="scripts/app.js"></script>
 </body>
 </html>
